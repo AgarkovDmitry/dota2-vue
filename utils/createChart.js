@@ -17,6 +17,7 @@ let simulation = d3.forceSimulation()
 let nodeWrap
 let defsWrap
 let linkWrap
+let id = -1
 
 function createDrag (simulation) {
   function dragstarted (d) {
@@ -133,12 +134,12 @@ function generateLinks (links) {
   linkWrap = linkWrapEnter.merge(linkWrap)
 }
 
-export default (_nodes, _links, selectedHero) => {
+export default (_nodes, _links) => {
   const nodes = [..._nodes, {
     label: 'ghost',
     r: 0,
     color: 0,
-    id: -selectedHero - 1,
+    id: id + '-ghost-node',
     src: '',
     width: 0,
     array: 0,
@@ -149,13 +150,15 @@ export default (_nodes, _links, selectedHero) => {
   }]
 
   const links = [..._links, {
-    id: `${-selectedHero - 1} - ghost`,
+    id: id + '-ghost-line',
     source: nodes.length - 1,
     target: nodes.length - 1,
     color: 'transparent',
     width: 0,
     opacity: 0
   }]
+
+  id--
 
   generateLinks(links)
   generateDefs(nodes)

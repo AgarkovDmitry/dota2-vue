@@ -43,10 +43,10 @@ export default {
     },
   },
   mounted () {
-    createHeroChart(this.chartData.nodes, this.chartData.links, this.$attrs.selectedHero)
+    createHeroChart(this.chartData.nodes, this.chartData.links)
   },
   updated () {
-    createHeroChart(this.chartData.nodes, this.chartData.links, this.$attrs.selectedHero)
+    createHeroChart(this.chartData.nodes, this.chartData.links)
   }
 }
 </script>
