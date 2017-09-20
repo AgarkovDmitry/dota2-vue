@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
-    "start": "nuxt build --universal",
+    "start": "nuxt start --spa",
     "heroku-postbuild": "npm run build",
     "generate": "nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
@@ -34,3 +34,4 @@
     "sass-loader": "^6.0.6"
   }
 }
+
